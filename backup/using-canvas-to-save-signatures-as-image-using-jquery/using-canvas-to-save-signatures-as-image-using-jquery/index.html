@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://intridea.github.io/sketch.js/lib/sketch.min.js" type="text/javascript"></script>-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/sketch.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#colors_sketch').sketch();
+            $(".tools a").eq(0).attr("style", "color:#000");
+            $(".tools a").click(function () {
+                $(".tools a").removeAttr("style");
+                $(this).attr("style", "color:#000");
+            });
+            $("#btnSave").bind("click", function () {
+                var base64 = $('#colors_sketch')[0].toDataURL();
+                $("#saveimg").attr("src", base64);
+                $("#saveimg").show();
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <h2>Using Canvas to save Signatures as image using jQuery</h2>
+        <div class="tools">
+            <a href="#colors_sketch" data-tool="marker">Marker</a> <a href="#colors_sketch" data-tool="eraser">
+                Eraser
+            </a>
+        </div>
+        <br />
+        <canvas id="colors_sketch" width="600" height="150" style="border-style: groove;"></canvas>
+        <br />
+        <br />
+        <input type="button" id="btnSave" value="Save as Image" /><br />
+        <br />
+
+        <img id="saveimg" alt="" style="display: none; border: 1px solid #ccc" />
+
+    </form>
+</body>
+</html>
